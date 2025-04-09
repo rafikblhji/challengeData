@@ -28,10 +28,7 @@ You can specify new Python dependencies in `setup.py`.
 
 ### Unit testing
 
-Tests are in the `rafik_pipeline_tests` directory and you can run tests using `pytest`:
-
-```bash
-pytest rafik_pipeline_tests
+Je n'ai pas encore généré des classes de tests unitaires, cependant j'ai fait des if et try afin d'éviter quelques erreurs comme division sur zero, ou utiliser un Nan..etc
 ```
 
 ### Schedules and sensors
