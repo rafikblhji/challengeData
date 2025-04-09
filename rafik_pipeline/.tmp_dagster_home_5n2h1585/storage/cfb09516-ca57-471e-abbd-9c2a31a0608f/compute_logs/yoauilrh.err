@@ -1,0 +1,33 @@
+[32m2025-04-09 09:27:01 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - cfb09516-ca57-471e-abbd-9c2a31a0608f - 66537 - LOGS_CAPTURED - Started capturing logs in process (pid: 66537).
+[32m2025-04-09 09:27:01 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - cfb09516-ca57-471e-abbd-9c2a31a0608f - 66537 - calculRJ - STEP_START - Started execution of step "calculRJ".
+[32m2025-04-09 09:27:01 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - cfb09516-ca57-471e-abbd-9c2a31a0608f - calculRJ - Loading file from: /home/rafik/Bureau/Data_Engineering/challengeData/rafik_pipeline/.tmp_dagster_home_5n2h1585/storage/getPrice using PickledObjectFilesystemIOManager...
+[32m2025-04-09 09:27:01 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - cfb09516-ca57-471e-abbd-9c2a31a0608f - 66537 - calculRJ - LOADED_INPUT - Loaded input "getPrice" using input manager "io_manager", from output "result" of step "getPrice"
+[32m2025-04-09 09:27:02 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - cfb09516-ca57-471e-abbd-9c2a31a0608f - 66537 - calculRJ - STEP_INPUT - Got input "getPrice" of type "DataFrame". (Type check passed).
+[32m2025-04-09 09:27:02 +0200[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - cfb09516-ca57-471e-abbd-9c2a31a0608f - 66537 - calculRJ - STEP_FAILURE - Execution of step "calculRJ" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "calculRJ"::
+
+Exception: Erreur dans calculRJ: Aucune donnée reçue de getPrice
+
+Stack Trace:
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_core/execution/plan/utils.py", line 56, in op_execution_error_boundary
+    yield
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_utils/__init__.py", line 391, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_core/execution/plan/compute_generator.py", line 127, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_core/execution/plan/compute_generator.py", line 115, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+                                                                    ^^^^^^^^^^^^^^^^^^
+  File "/home/rafik/Bureau/Data_Engineering/challengeData/rafik_pipeline/rafik_pipeline/assets.py", line 76, in calculRJ
+    raise Exception(f"Erreur dans calculRJ: {str(e)}")
+
+The above exception occurred during handling of the following exception:
+ValueError: Aucune donnée reçue de getPrice
+
+Stack Trace:
+  File "/home/rafik/Bureau/Data_Engineering/challengeData/rafik_pipeline/rafik_pipeline/assets.py", line 70, in calculRJ
+    raise ValueError("Aucune donnée reçue de getPrice")
+[0m

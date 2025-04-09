@@ -1,0 +1,54 @@
+[32m2025-04-08 23:09:08 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 6e6df114-62cd-447a-b3f2-426680320415 - 399852 - LOGS_CAPTURED - Started capturing logs in process (pid: 399852).
+[32m2025-04-08 23:09:08 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 6e6df114-62cd-447a-b3f2-426680320415 - 399852 - getPrice - STEP_START - Started execution of step "getPrice".
+[                       0%                       ][**                     4%                       ]  2 of 50 completed[***                    6%                       ]  3 of 50 completed[****                   8%                       ]  4 of 50 completed[*****                 10%                       ]  5 of 50 completed[******                12%                       ]  6 of 50 completed[*******               14%                       ]  7 of 50 completed[********              16%                       ]  8 of 50 completed[*********             18%                       ]  9 of 50 completed[**********            20%                       ]  10 of 50 completed[***********           22%                       ]  11 of 50 completed[************          24%                       ]  12 of 50 completed[************          26%                       ]  13 of 50 completed[*************         28%                       ]  14 of 50 completed[**************        30%                       ]  15 of 50 completed[***************       32%                       ]  16 of 50 completed[****************      34%                       ]  17 of 50 completed[*****************     36%                       ]  18 of 50 completed[******************    38%                       ]  19 of 50 completed[******************    38%                       ]  19 of 50 completed[********************  42%                       ]  21 of 50 completed[********************* 44%                       ]  22 of 50 completed[**********************46%                       ]  23 of 50 completed[**********************48%                       ]  24 of 50 completed[**********************50%                       ]  25 of 50 completed[**********************52%                       ]  26 of 50 completed[**********************54%*                      ]  27 of 50 completed[**********************56%**                     ]  28 of 50 completed[**********************58%***                    ]  29 of 50 completed[**********************60%****                   ]  30 of 50 completed[**********************62%*****                  ]  31 of 50 completed[**********************64%******                 ]  32 of 50 completed[**********************66%*******                ]  33 of 50 completed[**********************68%********               ]  34 of 50 completed[**********************70%*********              ]  35 of 50 completed[**********************72%**********             ]  36 of 50 completed[**********************74%***********            ]  37 of 50 completed[**********************76%***********            ]  38 of 50 completed[**********************78%************           ]  39 of 50 completed[**********************80%*************          ]  40 of 50 completed[**********************82%**************         ]  41 of 50 completed[**********************84%***************        ]  42 of 50 completed[**********************86%****************       ]  43 of 50 completed[**********************88%*****************      ]  44 of 50 completed[**********************90%******************     ]  45 of 50 completed[**********************92%*******************    ]  46 of 50 completed[**********************94%********************   ]  47 of 50 completed[**********************96%*********************  ]  48 of 50 completed[**********************98%********************** ]  49 of 50 completed[*********************100%***********************]  50 of 50 completed
+[32m2025-04-08 23:09:13 +0200[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 6e6df114-62cd-447a-b3f2-426680320415 - 399852 - getPrice - STEP_FAILURE - Execution of step "getPrice" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "getPrice"::
+
+KeyError: 'Adj Close'
+
+Stack Trace:
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_core/execution/plan/utils.py", line 56, in op_execution_error_boundary
+    yield
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_utils/__init__.py", line 391, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_core/execution/plan/compute_generator.py", line 127, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_core/execution/plan/compute_generator.py", line 115, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+                                                                    ^^^^^^^^^^^^^^^^^^
+  File "/home/rafik/Bureau/Data_Engineering/challengeData/rafik_pipeline/rafik_pipeline/assets.py", line 38, in getPrice
+    data = yf.download(ASSETS, period="2d")['Adj Close'] # récupérer les données financières
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pandas/core/frame.py", line 3892, in __getitem__
+    return self._getitem_multilevel(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pandas/core/frame.py", line 3950, in _getitem_multilevel
+    loc = self.columns.get_loc(key)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pandas/core/indexes/multi.py", line 2925, in get_loc
+    loc = self._get_level_indexer(key, level=0)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pandas/core/indexes/multi.py", line 3276, in _get_level_indexer
+    idx = self._get_loc_single_level_index(level_index, key)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pandas/core/indexes/multi.py", line 2865, in _get_loc_single_level_index
+    return level_index.get_loc(key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/pandas/core/indexes/base.py", line 3798, in get_loc
+    raise KeyError(key) from err
+
+The above exception was caused by the following exception:
+KeyError: 'Adj Close'
+
+Stack Trace:
+  File "/usr/lib/python3/dist-packages/pandas/core/indexes/base.py", line 3791, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+[0m

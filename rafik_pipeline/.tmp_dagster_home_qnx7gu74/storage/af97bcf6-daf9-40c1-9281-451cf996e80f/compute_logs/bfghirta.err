@@ -1,0 +1,26 @@
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - 420250 - LOGS_CAPTURED - Started capturing logs in process (pid: 420250).
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - 420250 - generate_pdf - STEP_START - Started execution of step "generate_pdf".
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - generate_pdf - Loading file from: /home/rafik/Bureau/Data_Engineering/challengeData/rafik_pipeline/.tmp_dagster_home_qnx7gu74/storage/calculRJ using PickledObjectFilesystemIOManager...
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - 420250 - generate_pdf - LOADED_INPUT - Loaded input "calculRJ" using input manager "io_manager", from output "result" of step "calculRJ"
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - generate_pdf - Loading file from: /home/rafik/Bureau/Data_Engineering/challengeData/rafik_pipeline/.tmp_dagster_home_qnx7gu74/storage/fetch_news using PickledObjectFilesystemIOManager...
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - 420250 - generate_pdf - LOADED_INPUT - Loaded input "fetch_news" using input manager "io_manager", from output "result" of step "fetch_news"
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - generate_pdf - Loading file from: /home/rafik/Bureau/Data_Engineering/challengeData/rafik_pipeline/.tmp_dagster_home_qnx7gu74/storage/getPrice using PickledObjectFilesystemIOManager...
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - 420250 - generate_pdf - LOADED_INPUT - Loaded input "getPrice" using input manager "io_manager", from output "result" of step "getPrice"
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - 420250 - generate_pdf - STEP_INPUT - Got input "calculRJ" of type "DataFrame". (Type check passed).
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - 420250 - generate_pdf - STEP_INPUT - Got input "fetch_news" of type "dict". (Type check passed).
+[32m2025-04-08 23:22:17 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - 420250 - generate_pdf - STEP_INPUT - Got input "getPrice" of type "DataFrame". (Type check passed).
+[32m2025-04-08 23:22:29 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - 420250 - generate_pdf - STEP_OUTPUT - Yielded output "result" of type "Nothing". Warning! Type check failed.
+[32m2025-04-08 23:22:29 +0200[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - af97bcf6-daf9-40c1-9281-451cf996e80f - 420250 - generate_pdf - STEP_FAILURE - Execution of step "generate_pdf" failed.
+
+dagster._core.errors.DagsterTypeCheckDidNotPass: Type check failed for step output "result" - expected type "Nothing". Description: Value must be None, got a <class 'str'>
+
+Stack Trace:
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_core/execution/plan/execute_plan.py", line 245, in dagster_event_sequence_for_step
+    yield from check.generator(step_events)
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_core/execution/plan/execute_step.py", line 508, in core_dagster_event_sequence_for_step
+    for evt in _type_check_and_store_output(step_context, user_event):
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_core/execution/plan/execute_step.py", line 552, in _type_check_and_store_output
+    yield from _type_check_output(step_context, step_output_handle, output)
+  File "/home/rafik/.local/lib/python3.12/site-packages/dagster/_core/execution/plan/execute_step.py", line 425, in _type_check_output
+    raise DagsterTypeCheckDidNotPass(
+[0m

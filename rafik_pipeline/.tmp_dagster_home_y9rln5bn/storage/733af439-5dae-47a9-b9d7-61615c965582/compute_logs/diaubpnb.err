@@ -1,0 +1,7 @@
+[32m2025-04-09 09:42:55 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 733af439-5dae-47a9-b9d7-61615c965582 - 91068 - LOGS_CAPTURED - Started capturing logs in process (pid: 91068).
+[32m2025-04-09 09:42:55 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 733af439-5dae-47a9-b9d7-61615c965582 - 91068 - getNews - STEP_START - Started execution of step "getNews".
+[32m2025-04-09 09:43:15 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 733af439-5dae-47a9-b9d7-61615c965582 - 91068 - getNews - STEP_OUTPUT - Yielded output "result" of type "dict". (Type check passed).
+[32m2025-04-09 09:43:15 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 733af439-5dae-47a9-b9d7-61615c965582 - getNews - Writing file at: /home/rafik/Bureau/Data_Engineering/challengeData/rafik_pipeline/.tmp_dagster_home_y9rln5bn/storage/getNews using PickledObjectFilesystemIOManager...
+[32m2025-04-09 09:43:16 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 733af439-5dae-47a9-b9d7-61615c965582 - 91068 - getNews - ASSET_MATERIALIZATION - Materialized value getNews.
+[32m2025-04-09 09:43:16 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 733af439-5dae-47a9-b9d7-61615c965582 - 91068 - getNews - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+[32m2025-04-09 09:43:16 +0200[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 733af439-5dae-47a9-b9d7-61615c965582 - 91068 - getNews - STEP_SUCCESS - Finished execution of step "getNews" in 20.92s.
