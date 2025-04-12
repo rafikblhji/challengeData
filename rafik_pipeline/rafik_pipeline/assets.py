@@ -18,7 +18,6 @@ load_dotenv()  # celui là je l'utilise pour récupérer ma clé API, je me méf
 os.getenv("NEWS_API_KEY")
 API_KEY = os.getenv("NEWS_API_KEY")
 
-#API_KEY="0297a303dd434d41ad3ba36c97ace92b"
 URL_API = "https://newsapi.org/v2/everything"
 
 
