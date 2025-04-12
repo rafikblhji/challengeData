@@ -126,12 +126,7 @@ def getNews(context) -> dict:
     return news_dict
     
 
-@asset(
-    ins={
-        "calculRJ": AssetIn("calculRJ"),
-        "getNews": AssetIn("getNews")
-    }
-)
+@asset
 def generate_pdf(context, calculRJ: pd.DataFrame, getNews: dict):
     """Génère un PDF de rapport journalier en utilisant les polices standard"""
     try:
